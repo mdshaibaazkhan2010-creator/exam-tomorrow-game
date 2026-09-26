@@ -1,0 +1,1295 @@
+/* ============================================
+   CLICK THE TARGET
+   MAIN STYLESHEET
+   ============================================ */
+
+
+/* ============================================
+   RESET
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(124, 92, 255, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 210, 255, 0.12),
+            transparent 30%
+        ),
+        #090b12;
+
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+
+/* ============================================
+   BACKGROUND
+   ============================================ */
+
+.background-shape {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(1px);
+    opacity: 0.25;
+    z-index: -1;
+}
+
+.shape-one {
+    width: 280px;
+    height: 280px;
+    top: -100px;
+    left: -100px;
+    background: #6d5dfc;
+}
+
+.shape-two {
+    width: 220px;
+    height: 220px;
+    right: -80px;
+    top: 30%;
+    background: #00c2ff;
+}
+
+.shape-three {
+    width: 180px;
+    height: 180px;
+    bottom: -60px;
+    left: 30%;
+    background: #a855f7;
+}
+
+
+/* ============================================
+   MAIN APP
+   ============================================ */
+
+.app {
+    width: min(100%, 900px);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ============================================
+   TOP BAR
+   ============================================ */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 92, 255, 0.35),
+            rgba(0, 194, 255, 0.2)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.brand h1 {
+    font-size: 17px;
+    font-weight: 750;
+    letter-spacing: -0.3px;
+}
+
+.brand p {
+    margin-top: 2px;
+    color: #7f8799;
+    font-size: 12px;
+}
+
+.icon-button {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #ffffff;
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.icon-button:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.icon-button:active {
+    transform: scale(0.95);
+}
+
+
+/* ============================================
+   SCREENS
+   ============================================ */
+
+.screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ============================================
+   START SCREEN
+   ============================================ */
+
+.start-screen {
+    align-items: center;
+    text-align: center;
+    padding: 30px 0 15px;
+}
+
+.hero-icon {
+    width: 95px;
+    height: 95px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 30px;
+
+    font-size: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 92, 255, 0.25),
+            rgba(0, 194, 255, 0.12)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 25px 70px rgba(95, 74, 220, 0.2);
+
+    margin-bottom: 24px;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.eyebrow {
+    color: #8e80ff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.start-screen h2,
+.result-screen h2 {
+    font-size: clamp(42px, 8vw, 70px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    font-weight: 850;
+    margin-bottom: 20px;
+}
+
+.description {
+    max-width: 480px;
+    color: #8e96a8;
+    line-height: 1.7;
+    font-size: 15px;
+    margin-bottom: 32px;
+}
+
+
+/* ============================================
+   DIFFICULTY
+   ============================================ */
+
+.difficulty-section {
+    width: min(100%, 560px);
+    margin-bottom: 24px;
+}
+
+.section-label {
+    color: #7f8799;
+    font-size: 11px;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.difficulty-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.difficulty-button {
+    min-height: 82px;
+    padding: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.difficulty-button:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.difficulty-button.active {
+    border-color: rgba(124, 92, 255, 0.7);
+    background: rgba(124, 92, 255, 0.12);
+    box-shadow:
+        0 10px 30px rgba(124, 92, 255, 0.1);
+}
+
+.difficulty-emoji {
+    font-size: 17px;
+}
+
+.difficulty-name {
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.difficulty-info {
+    color: #747d90;
+    font-size: 10px;
+}
+
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.primary-button {
+    min-width: 230px;
+    min-height: 56px;
+
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    border: 0;
+    border-radius: 17px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c5cff,
+            #5945df
+        );
+
+    box-shadow:
+        0 14px 35px rgba(100, 78, 235, 0.25);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 18px 45px rgba(100, 78, 235, 0.35);
+}
+
+.primary-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.button-arrow {
+    font-size: 20px;
+}
+
+.secondary-button {
+    min-height: 50px;
+    padding: 0 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    color: #a4abb9;
+
+    font-weight: 700;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.secondary-button:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+}
+
+
+/* ============================================
+   BEST SCORE
+   ============================================ */
+
+.best-score-preview {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 20px;
+
+    color: #747d90;
+    font-size: 12px;
+}
+
+.best-score-preview strong {
+    color: #ffffff;
+}
+
+
+/* ============================================
+   GAME SCREEN
+   ============================================ */
+
+.game-screen {
+    padding-top: 5px;
+}
+
+.game-header {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr 1fr;
+    gap: 10px;
+}
+
+.stat-card,
+.timer-card {
+    min-height: 82px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.timer-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 92, 255, 0.16),
+            rgba(124, 92, 255, 0.05)
+        );
+
+    border-color: rgba(124, 92, 255, 0.25);
+}
+
+.stat-label {
+    color: #71798b;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.stat-card strong,
+.timer-card strong {
+    font-size: 25px;
+    line-height: 1;
+}
+
+.timer-card strong {
+    color: #b5aaff;
+}
+
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+
+.progress-container {
+    padding: 13px 2px 15px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 5px;
+
+    overflow: hidden;
+
+    border-radius: 100px;
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c5cff,
+            #00c2ff
+        );
+
+    transition: width 0.2s linear;
+}
+
+
+/* ============================================
+   GAME AREA
+   ============================================ */
+
+.game-area {
+    position: relative;
+
+    width: 100%;
+    min-height: 470px;
+
+    flex: 1;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(124, 92, 255, 0.07),
+            transparent 45%
+        ),
+        rgba(255, 255, 255, 0.018);
+
+    box-shadow:
+        inset 0 0 80px rgba(0, 0, 0, 0.18);
+}
+
+.game-area::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.18;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.06) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.06) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    pointer-events: none;
+}
+
+
+/* ============================================
+   GAME MESSAGE
+   ============================================ */
+
+.game-message {
+    position: absolute;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    pointer-events: none;
+
+    color: #5e6678;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.game-message span {
+    padding: 10px 16px;
+
+    border-radius: 100px;
+
+    background: rgba(0, 0, 0, 0.2);
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* ============================================
+   TARGET
+   ============================================ */
+
+.target {
+    position: absolute;
+
+    width: 78px;
+    height: 78px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: crosshair;
+
+    transform: translate(-50%, -50%);
+
+    filter:
+        drop-shadow(
+            0 8px 20px rgba(124, 92, 255, 0.45)
+        );
+
+    z-index: 5;
+
+    animation:
+        targetAppear 0.18s ease-out,
+        targetPulse 1.2s ease-in-out infinite;
+}
+
+.target:active {
+    transform: translate(-50%, -50%) scale(0.86);
+}
+
+.target-ring {
+    position: absolute;
+    inset: 0;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.ring-one {
+    background:
+        radial-gradient(
+            circle,
+            #ffffff 0 10%,
+            #ff5d8f 11% 28%,
+            #ffffff 29% 46%,
+            #ff5d8f 47% 100%
+        );
+}
+
+.ring-two {
+    inset: 11px;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+}
+
+.ring-three {
+    inset: 24px;
+    background: #ff5d8f;
+    border: 3px solid #ffffff;
+}
+
+.target-center {
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes targetAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.35);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes targetPulse {
+    0%,
+    100% {
+        filter:
+            drop-shadow(
+                0 8px 18px rgba(124, 92, 255, 0.35)
+            );
+    }
+
+    50% {
+        filter:
+            drop-shadow(
+                0 8px 28px rgba(255, 93, 143, 0.55)
+            );
+    }
+}
+
+
+/* ============================================
+   CLICK EFFECTS
+   ============================================ */
+
+.click-effect-container {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.click-effect {
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    border: 2px solid #ffffff;
+
+    transform: translate(-50%, -50%);
+
+    animation:
+        clickExplosion 0.55s ease-out forwards;
+}
+
+@keyframes clickExplosion {
+    0% {
+        opacity: 1;
+        width: 10px;
+        height: 10px;
+    }
+
+    100% {
+        opacity: 0;
+        width: 90px;
+        height: 90px;
+    }
+}
+
+.score-popup {
+    position: absolute;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 850;
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    animation:
+        scoreFloat 0.75s ease-out forwards;
+
+    text-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes scoreFloat {
+    0% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            translateY(0)
+            scale(0.8);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            translateY(-55px)
+            scale(1.1);
+    }
+}
+
+
+/* ============================================
+   GAME TIP
+   ============================================ */
+
+.game-tip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    color: #60697b;
+
+    font-size: 11px;
+
+    padding-top: 12px;
+}
+
+
+/* ============================================
+   RESULT SCREEN
+   ============================================ */
+
+.result-screen {
+    align-items: center;
+    text-align: center;
+
+    padding: 25px 0 15px;
+}
+
+.result-icon {
+    width: 80px;
+    height: 80px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 25px;
+
+    font-size: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 195, 72, 0.16),
+            rgba(124, 92, 255, 0.12)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    margin-bottom: 22px;
+
+    animation:
+        resultPop 0.5s ease-out;
+}
+
+@keyframes resultPop {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+.result-screen h2 {
+    font-size: clamp(40px, 8vw, 64px);
+    margin-bottom: 8px;
+}
+
+.result-message {
+    color: #7f8799;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+
+/* ============================================
+   FINAL SCORE
+   ============================================ */
+
+.final-score-card {
+    width: min(100%, 400px);
+
+    padding: 24px;
+
+    border-radius: 23px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 92, 255, 0.13),
+            rgba(0, 194, 255, 0.05)
+        );
+
+    border: 1px solid rgba(124, 92, 255, 0.2);
+
+    margin-bottom: 14px;
+}
+
+.final-score-card > span {
+    display: block;
+
+    color: #747d90;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+.final-score-card > strong {
+    display: block;
+
+    font-size: 64px;
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #9b8cff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.new-record {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    color: #f7c957;
+
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 1.5px;
+}
+
+
+/* ============================================
+   RESULTS GRID
+   ============================================ */
+
+.results-grid {
+    width: min(100%, 500px);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.result-stat {
+    min-height: 88px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.result-stat span {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.result-stat small {
+    color: #697285;
+    font-size: 9px;
+    margin-bottom: 3px;
+}
+
+.result-stat strong {
+    font-size: 14px;
+}
+
+
+/* ============================================
+   RESULT BUTTONS
+   ============================================ */
+
+.result-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+    padding-top: 20px;
+
+    text-align: center;
+
+    color: #555d6e;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+.footer-small {
+    opacity: 0.6;
+}
+
+
+/* ============================================
+   CONFETTI
+   ============================================ */
+
+.confetti-container {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 100;
+}
+
+.confetti {
+    position: absolute;
+
+    width: 8px;
+    height: 14px;
+
+    top: -20px;
+
+    border-radius: 2px;
+
+    animation:
+        confettiFall
+        var(--duration)
+        linear
+        forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(var(--drift))
+            rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* ============================================
+   SCREEN SHAKE
+   ============================================ */
+
+.shake {
+    animation:
+        screenShake 0.25s ease-in-out;
+}
+
+@keyframes screenShake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-3px);
+    }
+}
+
+
+/* ============================================
+   FOCUS STATES
+   ============================================ */
+
+button:focus-visible {
+    outline: 2px solid #9b8cff;
+    outline-offset: 3px;
+}
+
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 600px) {
+
+    .app {
+        padding: 17px;
+    }
+
+    .topbar {
+        margin-bottom: 15px;
+    }
+
+    .brand-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 13px;
+        font-size: 21px;
+    }
+
+    .brand h1 {
+        font-size: 15px;
+    }
+
+    .brand p {
+        font-size: 10px;
+    }
+
+    .icon-button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .start-screen {
+        padding-top: 25px;
+    }
+
+    .hero-icon {
+        width: 78px;
+        height: 78px;
+        border-radius: 24px;
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .start-screen h2,
+    .result-screen h2 {
+        font-size: 44px;
+        letter-spacing: -2px;
+    }
+
+    .description {
+        font-size: 13px;
+        margin-bottom: 24px;
+        padding: 0 10px;
+    }
+
+    .difficulty-buttons {
+        gap: 6px;
+    }
+
+    .difficulty-button {
+        min-height: 74px;
+        border-radius: 14px;
+    }
+
+    .game-area {
+        min-height: 420px;
+        border-radius: 22px;
+    }
+
+    .target {
+        width: 68px;
+        height: 68px;
+    }
+
+    .game-tip {
+        font-size: 10px;
+    }
+
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+
+    .result-stat {
+        min-height: 75px;
+    }
+
+    .final-score-card {
+        padding: 20px;
+    }
+
+    .final-score-card > strong {
+        font-size: 55px;
+    }
+}
+
+
+/* ============================================
+   VERY SMALL PHONES
+   ============================================ */
+
+@media (max-width: 370px) {
+
+    .app {
+        padding: 12px;
+    }
+
+    .game-area {
+        min-height: 390px;
+    }
+
+    .stat-card,
+    .timer-card {
+        min-height: 70px;
+    }
+
+    .stat-card strong,
+    .timer-card strong {
+        font-size: 21px;
+    }
+
+    .start-screen h2,
+    .result-screen h2 {
+        font-size: 38px;
+    }
+
+}
+
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+
+}
