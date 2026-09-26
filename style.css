@@ -3,11 +3,6 @@
    MAIN STYLESHEET
    ============================================ */
 
-
-/* ============================================
-   RESET
-   ============================================ */
-
 * {
     margin: 0;
     padding: 0;
@@ -96,6 +91,35 @@ body {
     padding: 24px;
     display: flex;
     flex-direction: column;
+}
+
+
+/* ============================================
+   PERSONAL HEADER
+   ============================================ */
+
+.personal-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 0 3px;
+}
+
+.study-text {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+}
+
+.creator-name {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: 0.3px;
+    opacity: 0.9;
 }
 
 
@@ -1156,6 +1180,18 @@ button:focus-visible {
         padding: 17px;
     }
 
+    .personal-header {
+        margin-bottom: 13px;
+    }
+
+    .study-text {
+        font-size: 12px;
+    }
+
+    .creator-name {
+        font-size: 10px;
+    }
+
     .topbar {
         margin-bottom: 15px;
     }
@@ -1254,6 +1290,18 @@ button:focus-visible {
 
     .app {
         padding: 12px;
+    }
+
+    .personal-header {
+        padding: 0;
+    }
+
+    .study-text {
+        font-size: 10px;
+    }
+
+    .creator-name {
+        font-size: 9px;
     }
 
     .game-area {
