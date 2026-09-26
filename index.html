@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Click the Target - a fast reflex browser game."
+    >
+
+    <title>Click the Target 🎯</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+    <main class="app">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="brand">
+                <div class="brand-icon">🎯</div>
+
+                <div>
+                    <h1>Click the Target</h1>
+                    <p>Test your reflexes</p>
+                </div>
+            </div>
+
+            <button
+                id="soundButton"
+                class="icon-button"
+                type="button"
+                aria-label="Toggle sound"
+            >
+                🔊
+            </button>
+
+        </header>
+
+
+        <!-- START SCREEN -->
+        <section
+            id="startScreen"
+            class="screen start-screen"
+        >
+
+            <div class="hero-icon">
+                🎯
+            </div>
+
+            <p class="eyebrow">
+                REFLEX CHALLENGE
+            </p>
+
+            <h2>
+                How fast<br>
+                can you click?
+            </h2>
+
+            <p class="description">
+                Hit the target as many times as possible before
+                the clock reaches zero.
+            </p>
+
+            <div class="difficulty-section">
+
+                <p class="section-label">
+                    Choose difficulty
+                </p>
+
+                <div class="difficulty-buttons">
+
+                    <button
+                        class="difficulty-button active"
+                        data-difficulty="easy"
+                        type="button"
+                    >
+                        <span class="difficulty-emoji">🟢</span>
+                        <span class="difficulty-name">Easy</span>
+                        <span class="difficulty-info">Slow</span>
+                    </button>
+
+                    <button
+                        class="difficulty-button"
+                        data-difficulty="normal"
+                        type="button"
+                    >
+                        <span class="difficulty-emoji">🟡</span>
+                        <span class="difficulty-name">Normal</span>
+                        <span class="difficulty-info">Medium</span>
+                    </button>
+
+                    <button
+                        class="difficulty-button"
+                        data-difficulty="hard"
+                        type="button"
+                    >
+                        <span class="difficulty-emoji">🔴</span>
+                        <span class="difficulty-name">Hard</span>
+                        <span class="difficulty-info">Fast</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button
+                id="startButton"
+                class="primary-button"
+                type="button"
+            >
+                <span>Start Game</span>
+                <span class="button-arrow">→</span>
+            </button>
+
+            <div class="best-score-preview">
+                <span>🏆 Best Score</span>
+                <strong id="startBestScore">0</strong>
+            </div>
+
+        </section>
+
+
+        <!-- GAME SCREEN -->
+        <section
+            id="gameScreen"
+            class="screen game-screen hidden"
+        >
+
+            <div class="game-header">
+
+                <div class="stat-card">
+                    <span class="stat-label">SCORE</span>
+                    <strong id="score">0</strong>
+                </div>
+
+                <div class="timer-card">
+                    <span class="stat-label">TIME</span>
+                    <strong id="timer">30</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">COMBO</span>
+                    <strong id="combo">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="progress-container">
+
+                <div class="progress-track">
+                    <div
+                        id="timeProgress"
+                        class="progress-bar"
+                    ></div>
+                </div>
+
+            </div>
+
+
+            <div
+                id="gameArea"
+                class="game-area"
+            >
+
+                <div
+                    id="gameMessage"
+                    class="game-message"
+                >
+                    <span>GET READY!</span>
+                </div>
+
+                <button
+                    id="target"
+                    class="target hidden"
+                    type="button"
+                    aria-label="Target"
+                >
+                    <span class="target-ring ring-one"></span>
+                    <span class="target-ring ring-two"></span>
+                    <span class="target-ring ring-three"></span>
+                    <span class="target-center"></span>
+                </button>
+
+                <div
+                    id="clickEffectContainer"
+                    class="click-effect-container"
+                ></div>
+
+            </div>
+
+
+            <div class="game-tip">
+                <span>⚡</span>
+                <span>Click the target as quickly as you can!</span>
+            </div>
+
+        </section>
+
+
+        <!-- RESULT SCREEN -->
+        <section
+            id="resultScreen"
+            class="screen result-screen hidden"
+        >
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+            <p class="eyebrow">
+                TIME'S UP
+            </p>
+
+            <h2>
+                Game Over!
+            </h2>
+
+            <p
+                id="resultMessage"
+                class="result-message"
+            >
+                Nice reflexes!
+            </p>
+
+
+            <div class="final-score-card">
+
+                <span>YOUR SCORE</span>
+
+                <strong id="finalScore">
+                    0
+                </strong>
+
+                <div
+                    id="newRecord"
+                    class="new-record hidden"
+                >
+                    ✨ NEW RECORD ✨
+                </div>
+
+            </div>
+
+
+            <div class="results-grid">
+
+                <div class="result-stat">
+                    <span>🎯</span>
+                    <small>Hits</small>
+                    <strong id="finalHits">0</strong>
+                </div>
+
+                <div class="result-stat">
+                    <span>🔥</span>
+                    <small>Best Combo</small>
+                    <strong id="finalCombo">0</strong>
+                </div>
+
+                <div class="result-stat">
+                    <span>⚡</span>
+                    <small>Accuracy</small>
+                    <strong id="finalAccuracy">0%</strong>
+                </div>
+
+                <div class="result-stat">
+                    <span>⏱️</span>
+                    <small>Difficulty</small>
+                    <strong id="finalDifficulty">Easy</strong>
+                </div>
+
+            </div>
+
+
+            <div class="result-buttons">
+
+                <button
+                    id="playAgainButton"
+                    class="primary-button"
+                    type="button"
+                >
+                    <span>Play Again</span>
+                    <span>↻</span>
+                </button>
+
+                <button
+                    id="homeButton"
+                    class="secondary-button"
+                    type="button"
+                >
+                    ← Back to Menu
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                Made with 💻 instead of studying
+            </p>
+
+            <p class="footer-small">
+                © 2026 Click the Target
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- CONFETTI CONTAINER -->
+    <div
+        id="confettiContainer"
+        class="confetti-container"
+    ></div>
+
+
+    <!-- SOUND EFFECTS -->
+    <audio
+        id="clickSound"
+        preload="auto"
+    ></audio>
+
+    <audio
+        id="startSound"
+        preload="auto"
+    ></audio>
+
+    <audio
+        id="gameOverSound"
+        preload="auto"
+    ></audio>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
